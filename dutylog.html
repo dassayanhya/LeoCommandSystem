@@ -9,71 +9,59 @@
 </head>
 
 <body>
-  <div class="layout">
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-      <div class="user-card">
-        <h3>Name: <span id="user-name">Philip Graves</span></h3>
-        <p>ORG: <span id="user-org">NG</span></p>
-        <p>ID: <span id="user-id">10334</span></p>
-        <p>BADGE: <span id="user-badge">000</span></p>
-        <p>RANK: <span id="user-rank">Major General</span></p>
-        <button class="registered">REGISTERED</button>
-      </div>
+  <div class="page">
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar"></div>
 
-      <div class="info-card">
-        <p id="icTime">IC TIME : LONDON TIME</p>
-        <p id="onDutyText">ON DUTY : 00:00</p>
-        <p id="offDutyText">ON OFF : 00:00</p>
-        <p id="dateText">DATE : DD/MM/YYYY</p>
-        <p id="sessionTime">SESSION TIME : 19:00</p>
-        <div class="status-buttons">
-          <button class="on">ON DUTY</button>
-          <button class="off">OFF DUTY</button>
-          <button class="break">ON BREAK</button>
-          <button class="back">BACK ON</button>
-        </div>
-      </div>
-
-      <div class="action-card">
-        <button class="logout">LOGOUT</button>
-        <button class="how">HOW TO USE?</button>
-        <button class="discord">JOIN DISCORD</button>
-        <p class="credit">MADE BY <strong>GUILDLABS</strong></p>
-      </div>
-    </aside>
-
-    <!-- MAIN CONTENT -->
+    <!-- Main Panel -->
     <main class="main-panel">
-      <div class="nav-bar">
-        <button onclick="window.location.href='bodycam.html'">BODYCAM COMMANDS</button>
-        <button onclick="window.location.href='penal.html'">PENAL & TRAFFIC CODES</button>
-        <button class="active">DUTYLOGS GENERATOR</button>
+      <div class="tabs">
+        <a href="bodycam.html" class="tab">BODYCAM COMMANDS</a>
+        <a href="penal.html" class="tab">PENAL & TRAFFIC CODES</a>
+        <a href="dutylog.html" class="tab active">DUTYLOGS GENERATOR</a>
       </div>
 
-      <div class="panel dutylog-panel">
+      <div class="content-section">
+        <h2 class="title">DUTY LOG GENERATOR</h2>
+
         <div class="officer-info">
-          <p><strong>NAME:</strong> <span id="dl-name">Philip Graves</span></p>
-          <p><strong>ID:</strong> <span id="dl-id">10334</span></p>
-          <p><strong>BADGE:</strong> <span id="dl-badge">000</span></p>
-          <p><strong>RANK:</strong> <span id="dl-rank">Major General</span></p>
+          <p><strong>NAME:</strong> <span id="dl-name">-</span></p>
+          <p><strong>ORG:</strong> <span id="dl-org">-</span></p>
+          <p><strong>ID:</strong> <span id="dl-id">-</span></p>
+          <p><strong>BADGE:</strong> <span id="dl-badge">-</span></p>
+          <p><strong>RANK:</strong> <span id="dl-rank">-</span></p>
+          <p><strong>DATE:</strong> <span id="dl-date">-</span></p>
         </div>
 
-        <div class="checkbox-section">
-          <div class="section-title">Weapons</div>
-          <div class="checkbox-grid">
-            <label><input type="checkbox" value="STUN GUN"> STUN GUN</label>
-            <label><input type="checkbox" value="STUN GUN AMMO"> STUN GUN AMMO</label>
-            <label><input type="checkbox" value="ASSAULT RIFLE"> ASSAULT RIFLE</label>
-            <label><input type="checkbox" value="ASSAULT RIFLE AMMO"> ASSAULT RIFLE AMMO</label>
-            <label><input type="checkbox" value="SHOTGUN"> SHOTGUN</label>
-            <label><input type="checkbox" value="SHOTGUN AMMO"> SHOTGUN AMMO</label>
-            <label><input type="checkbox" value="LIGHT MACHINE GUN"> LIGHT MACHINE GUN</label>
-            <label><input type="checkbox" value="LIGHT MACHINE GUN AMMO"> LIGHT MACHINE GUN AMMO</label>
-          </div>
+        <!-- Time inputs -->
+        <div class="time-inputs">
+          <input type="time" id="onDuty" placeholder="On Duty" />
+          <input type="time" id="offDuty" placeholder="Off Duty" />
+        </div>
 
-          <div class="section-title">Events</div>
-          <div class="checkbox-grid">
+        <!-- Weapons -->
+        <div class="category">
+          <h2>Weapons & Ammunition</h2>
+          <div class="weapon-grid">
+            <label>STUN GUN <input type="number" min="0" data-name="STUN GUN" /></label>
+            <label>STUN GUN AMMO <input type="number" min="0" data-name="STUN GUN AMMO" /></label>
+            <label>ASSAULT RIFLE <input type="number" min="0" data-name="ASSAULT RIFLE" /></label>
+            <label>ASSAULT RIFLE AMMO <input type="number" min="0" data-name="ASSAULT RIFLE AMMO" /></label>
+            <label>SHOTGUN <input type="number" min="0" data-name="SHOTGUN" /></label>
+            <label>SHOTGUN AMMO <input type="number" min="0" data-name="SHOTGUN AMMO" /></label>
+            <label>LIGHT MACHINE GUN <input type="number" min="0" data-name="LIGHT MACHINE GUN" /></label>
+            <label>LIGHT MACHINE GUN AMMO <input type="number" min="0" data-name="LIGHT MACHINE GUN AMMO" /></label>
+            <label>SNIPER RIFLE <input type="number" min="0" data-name="SNIPER RIFLE" /></label>
+            <label>SNIPER RIFLE AMMO <input type="number" min="0" data-name="SNIPER RIFLE AMMO" /></label>
+            <label>Vest <input type="number" min="0" data-name="Vest" /></label>
+            <label>Balaclava Mask <input type="number" min="0" data-name="Balaclava Mask" /></label>
+          </div>
+        </div>
+
+        <!-- Events -->
+        <div class="category">
+          <h2>Events Attended</h2>
+          <div class="event-grid">
             <label><input type="checkbox" value="STORE ROBBERY"> STORE ROBBERY</label>
             <label><input type="checkbox" value="HOSTAGE RESCUE"> HOSTAGE RESCUE</label>
             <label><input type="checkbox" value="GHETTO PATROL"> GHETTO PATROL</label>
@@ -86,20 +74,22 @@
             <label><input type="checkbox" value="SUBMARINE INTERCEPTION"> SUBMARINE INTERCEPTION</label>
             <label><input type="checkbox" value="BLACK MARKET RAID"> BLACK MARKET RAID</label>
           </div>
-
-          <div class="generate-container">
-            <button id="generateBtn" class="btn yellow">GENERATE</button>
-          </div>
-
-          <div class="output">
-            <textarea id="outputText" readonly></textarea>
-            <button id="copyBtn" class="btn ghost">📋 Copy Log</button>
-          </div>
         </div>
+
+        <div class="button-row">
+          <button id="generateLog" class="btn neon">GENERATE LOG</button>
+          <button id="copyLog" class="btn ghost">COPY LOG</button>
+        </div>
+
+        <textarea id="generatedLog" readonly placeholder="Generated duty log will appear here..."></textarea>
       </div>
     </main>
   </div>
 
+  <script type="module">
+    import { loadSidebar } from './js/sidebar.js';
+    loadSidebar('dutylog');
+  </script>
   <script src="js/dutylog.js"></script>
 </body>
 </html>

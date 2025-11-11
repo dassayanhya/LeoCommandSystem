@@ -52,7 +52,7 @@ btnRegister.addEventListener('click', async () => {
     }));
 
     // Redirect to dashboard
-    window.location.href = "dashboard.html";
+    window.location.href = "bodycam.html";
   } catch (err) {
     console.error(err);
     msg.textContent = err.message || "❌ Registration failed. Please try again.";

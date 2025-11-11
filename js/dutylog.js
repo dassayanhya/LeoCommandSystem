@@ -1,55 +1,117 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const generateBtn = document.getElementById("generateBtn");
-  const outputText = document.getElementById("outputText");
-  const copyBtn = document.getElementById("copyBtn");
-
-  function getLondonTime() {
-    return new Date().toLocaleTimeString("en-GB", {
+window.addEventListener("DOMContentLoaded", () => {
+  // === Helper functions ===
+  const getLondonTime = () =>
+    new Date().toLocaleTimeString("en-GB", {
       hour: "2-digit",
       minute: "2-digit",
-      second: "2-digit",
-      timeZone: "Europe/London"
+      timeZone: "Europe/London",
     });
-  }
 
-  function getDate() {
-    return new Date().toLocaleDateString("en-GB");
-  }
+  const getLondonDate = () =>
+    new Date().toLocaleDateString("en-GB", { timeZone: "Europe/London" });
+
+  const safeParse = (key) => {
+    try {
+      return JSON.parse(sessionStorage.getItem(key));
+    } catch {
+      return null;
+    }
+  };
+
+  // === Officer info ===
+  const user = safeParse("leo_user") || {};
+  document.getElementById("dl-name").textContent = user.name || "Unknown";
+  document.getElementById("dl-org").textContent = user.org || "-";
+  document.getElementById("dl-id").textContent = user.icid || user.id || "-";
+  document.getElementById("dl-badge").textContent = user.badge || "-";
+  document.getElementById("dl-rank").textContent = user.rank || "-";
+  document.getElementById("dl-date").textContent =
+    user.date || getLondonDate();
+
+  // === Dynamic sidebar time sync ===
+  let lastData = "";
+
+  const updateTimes = () => {
+    const data = safeParse("session_data") || {};
+    const json = JSON.stringify(data);
+    if (json === lastData) return;
+    lastData = json;
+
+    // Extract times (sidebar stores them in HH:MM format)
+    const onDuty = data.onDuty || "--:--";
+    const offDuty = data.offDuty || "--:--";
+
+    // Show in inputs
+    const onDutyInput = document.getElementById("onDuty");
+    const offDutyInput = document.getElementById("offDuty");
+
+    if (onDuty && onDuty !== "--:--") onDutyInput.value = formatTime(onDuty);
+    if (offDuty && offDuty !== "--:--") offDutyInput.value = formatTime(offDuty);
+  };
+
+  const formatTime = (t) => {
+    if (t.includes(":")) {
+      const [h, m] = t.split(":");
+      return `${h.padStart(2, "0")}:${m.padStart(2, "0")}`;
+    }
+    return "--:--";
+  };
+
+  // === Poll sessionStorage for updates (sidebar events) ===
+  setInterval(updateTimes, 500);
+
+  // === Generate Log ===
+  const generateBtn = document.getElementById("generateLog");
+  const copyBtn = document.getElementById("copyLog");
+  const output = document.getElementById("generatedLog");
 
   generateBtn.addEventListener("click", () => {
-    const weapons = Array.from(document.querySelectorAll('.checkbox-grid input:checked'))
-      .filter((c) => ["STUN GUN", "STUN GUN AMMO", "ASSAULT RIFLE", "ASSAULT RIFLE AMMO", "SHOTGUN", "SHOTGUN AMMO", "LIGHT MACHINE GUN", "LIGHT MACHINE GUN AMMO"].includes(c.value))
-      .map(c => c.value);
+    const onDuty = document.getElementById("onDuty").value || "--:--";
+    const offDuty = document.getElementById("offDuty").value || "--:--";
 
-    const events = Array.from(document.querySelectorAll('.checkbox-grid input:checked'))
-      .filter((c) => !weapons.includes(c.value))
-      .map(c => c.value);
+    const weapons = [];
+    document.querySelectorAll(".weapon-grid input[type='number']").forEach((el) => {
+      const qty = parseInt(el.value);
+      if (qty > 0) weapons.push(`${el.dataset.name} x${qty}`);
+    });
+
+    const events = [];
+    document.querySelectorAll(".event-grid input[type='checkbox']:checked").forEach((el) =>
+      events.push(el.value)
+    );
 
     const log = `
-Name: ${document.getElementById("user-name").textContent}
-ID: ${document.getElementById("user-id").textContent}
-Rank: ${document.getElementById("user-rank").textContent}
+Name: ${user.name || "N/A"}
+ID: ${user.icid || user.id || "N/A"} | Badge: ${user.badge || "N/A"}
+Rank: ${user.rank || "N/A"}
+Date: ${getLondonDate()}
 
-========== Clocking-out =============
-Date: ${getDate()}
-On Duty: ${getLondonTime()}
-Off Duty: ${getLondonTime()}
+========== CLOCKING OUT ==========
 
-=========== Patrol Logs =================
-Attended Events: ${events.length ? events.join(", ") : "None"}
+On Duty: ${onDuty} 
+Off Duty: ${offDuty} 
 
-=========== Weapons Logs ================
-Taken: ${weapons.length ? weapons.join(", ") : "None"}
-Returned: ${weapons.length ? weapons.join(", ") : "None"}
-Lost: None
-Disposed: None`;
+=========== WEAPONS LOG ===========
 
-    outputText.value = log.trim();
+Taken:
+${weapons.length ? weapons.join("\n") : "None"}
+Returned:
+Lost/Stolen: 
+
+=========== PATROL LOG ===========
+Attended Events:
+${events.length ? events.join("\n") : "None"}
+
+
+`;
+
+    output.value = log.trim();
   });
 
   copyBtn.addEventListener("click", () => {
-    navigator.clipboard.writeText(outputText.value);
-    copyBtn.textContent = "✅ Copied!";
-    setTimeout(() => (copyBtn.textContent = "📋 Copy Log"), 2000);
+    if (!output.value.trim()) return alert("No log generated yet!");
+    navigator.clipboard.writeText(output.value);
+    copyBtn.textContent = "Copied!";
+    setTimeout(() => (copyBtn.textContent = "COPY LOG"), 1500);
   });
 });

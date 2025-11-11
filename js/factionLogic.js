@@ -89,7 +89,7 @@ function renderCommandsForFaction(org) {
 // logout
 logoutBtn.addEventListener('click', () => {
   sessionStorage.removeItem('leo_user');
-  window.location.href = 'login.html';
+  window.location.href = 'index.html';
 });
 
 // small helpers
