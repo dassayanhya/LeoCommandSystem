@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LEO Command System — Login</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Firebase -->
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <main class="page">
+    <section class="card left-card">
+      <h1 class="title">LEO COMMAND SYSTEM</h1>
+
+      <div class="tabs">
+        <button id="tab-registered" class="tab active">REGISTERED USER</button>
+        <button id="tab-guest" class="tab">GUEST USER</button>
+      </div>
+
+      <!-- Registered Form -->
+      <form id="registered-form" class="form">
+        <input id="reg-email" type="email" placeholder="EMAIL" required />
+        <input id="reg-password" type="password" placeholder="PASSWORD" required />
+        <div class="form-row">
+          <button id="btn-login" type="button" class="btn neon">LOGIN</button>
+          <button id="btn-reset" type="button" class="btn ghost">PASSWORD RESET</button>
+        </div>
+        <div id="reg-msg" class="form-msg"></div>
+
+        <!-- 🔹 NEW LINE ADDED HERE -->
+        <p style="text-align:center; color:var(--muted); margin-top:12px; font-weight:600;">
+          Not registered yet?
+          <a href="register.html" style="color:var(--neon); text-decoration:none; font-weight:700;">
+            Register here
+          </a>
+        </p>
+      </form>
+
+      <!-- Guest Form -->
+      <form id="guest-form" class="form hidden">
+        <input id="guest-name" type="text" placeholder="IC NAME" required />
+        <input id="guest-id" type="text" placeholder="IC ID" required />
+        <input id="guest-badge" type="text" placeholder="BADGE NO." />
+        <select id="guest-org" required>
+          <option value="" disabled selected>SELECT ORG</option>
+          <option value="LSPD">LSPD</option>
+          <option value="EMS">EMS</option>
+          <option value="SAHP">SAHP</option>
+          <option value="NG">NG</option>
+          <option value="FIB">FIB</option>
+          <option value="GOV">GOV</option>
+        </select>
+        <input id="guest-rank" type="text" placeholder="RANK" />
+        <div class="form-row center">
+          <button id="btn-guest" type="button" class="btn neon">LOGIN AS GUEST</button>
+        </div>
+        <div id="guest-msg" class="form-msg"></div>
+      </form>
+
+      <div class="madeby">MADE BY <strong>GUILDLABS</strong></div>
+    </section>
+
+    <section class="card right-card">
+      <h2 class="how">HOW TO USE</h2>
+      <ol class="instructions">
+        <li><strong>REGISTERED USERS</strong> : Login with your email and password to access your IC profile.</li>
+        <li><strong>GUESTS</strong> : Enter IC details to log in temporarily.</li>
+        <li>Once logged in, you'll be redirected to the Command Dashboard.</li>
+        <li>Use your assigned permissions to access department tools.</li>
+        <li>Admins can modify registered users from the Admin Panel.</li>
+      </ol>
+      <p class="help">NEED HELP? CONTACT SUPPORT VIA DISCORD.</p>
+    </section>
+  </main>
+
+  <!-- Firebase + Scripts -->
+  <script type="module" src="./js/firebaseConfig.js"></script>
+  <script type="module" src="./js/auth.js"></script>
+  <script type="module" src="./js/guest.js"></script>
+
+  <!-- Toggle Logic -->
+  <script>
+    const tabRegistered = document.getElementById('tab-registered');
+    const tabGuest = document.getElementById('tab-guest');
+    const regForm = document.getElementById('registered-form');
+    const guestForm = document.getElementById('guest-form');
+
+    tabRegistered.addEventListener('click', () => {
+      tabRegistered.classList.add('active');
+      tabGuest.classList.remove('active');
+      regForm.classList.remove('hidden');
+      guestForm.classList.add('hidden');
+    });
+
+    tabGuest.addEventListener('click', () => {
+      tabGuest.classList.add('active');
+      tabRegistered.classList.remove('active');
+      guestForm.classList.remove('hidden');
+      regForm.classList.add('hidden');
+    });
+  </script>
+</body>
+</html>
