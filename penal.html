@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Penal Codes | LEO Command System</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="stylesheet" href="css/code.css" />
+  <script type="module" src="./js/sidebar.js"></script>
+</head>
+
+<body>
+  <div class="dashboard">
+    <div id="sidebar"></div>
+
+    <main class="content">
+      <div class="nav-buttons">
+        <a href="bodycam.html" class="nav-btn">BODYCAM COMMANDS</a>
+        <a href="penal.html" class="nav-btn active">PENAL & TRAFFIC CODES</a>
+        <a href="dutylog.html" class="nav-btn">DUTYLOGS GENERATOR</a>
+      </div>
+
+      <div class="tab-buttons">
+        <button class="tab active">PENAL CODES</button>
+        <a href="traffic.html" class="tab">TRAFFIC CODES</a>
+      </div>
+
+      <input type="text" class="search-box" id="searchInput" placeholder="Search penal code..." />
+      <div class="codes-container" id="penalContainer"></div>
+    </main>
+  </div>
+
+  <script type="module" src="./js/penal.js"></script>
+</body>
+</html>

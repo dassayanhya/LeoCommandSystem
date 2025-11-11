@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LEO Command System — Register</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Firebase compat modules -->
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <main class="page">
+    <section class="card left-card">
+      <h1 class="title">REGISTER ACCOUNT</h1>
+
+      <form id="register-form" class="form">
+        <input id="reg-email" type="email" placeholder="EMAIL" required />
+        <input id="reg-password" type="password" placeholder="PASSWORD" required />
+        <input id="ic-name" type="text" placeholder="IC NAME" required />
+        <input id="ic-id" type="text" placeholder="IC ID" required />
+        <input id="badge-no" type="text" placeholder="BADGE NO." />
+        <select id="org" required>
+          <option value="" disabled selected>SELECT ORG</option>
+          <option value="LSPD">LSPD</option>
+          <option value="EMS">EMS</option>
+          <option value="SAHP">SAHP</option>
+          <option value="NG">NG</option>
+          <option value="FIB">FIB</option>
+          <option value="GOV">GOV</option>
+        </select>
+        <input id="rank" type="text" placeholder="RANK" />
+        <div class="form-row center">
+          <button id="btn-register" type="button" class="btn neon">CREATE ACCOUNT</button>
+        </div>
+        <div id="reg-msg" class="form-msg"></div>
+      </form>
+
+      <p style="text-align:center; color:var(--muted); margin-top:20px;">
+        Already have an account? <a href="login.html" style="color:var(--neon); text-decoration:none;">Login</a>
+      </p>
+
+      <div class="madeby">MADE BY <strong>GUILDLABS</strong></div>
+    </section>
+
+    <section class="card right-card">
+      <h2 class="how">INSTRUCTIONS</h2>
+      <ol class="instructions">
+        <li>Fill in your IC and department details carefully — they’ll appear on your profile.</li>
+        <li>Email & password are used for secure login (only accessible by you).</li>
+        <li>After registering, you’ll be redirected to the Command Dashboard.</li>
+        <li>Your department data will automatically sync with faction commands.</li>
+        <li>Use strong passwords — admins cannot recover them for you.</li>
+      </ol>
+      <p class="help">NEED HELP? CONTACT SUPPORT VIA DISCORD.</p>
+    </section>
+  </main>
+
+  <script type="module" src="./js/firebaseConfig.js"></script>
+  <script type="module" src="./js/register.js"></script>
+</body>
+</html>

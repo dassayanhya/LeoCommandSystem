@@ -1,0 +1,208 @@
+:root{
+  --bg:#07161a;
+  --panel:#0c2326;
+  --accent:#13c3ff;
+  --accent-2:#00d6ff;
+  --neon:#00c3ff;
+  --glass: rgba(255,255,255,0.03);
+  --muted: #bfcfd3;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%; margin:0; font-family:"Poppins",system-ui; background:var(--bg); color:#cfe7ec}
+.page{
+  display:flex;
+  gap:32px;
+  padding:48px 96px;
+  align-items:flex-start;
+  justify-content:center;
+  min-height:100vh;
+}
+
+/* Card */
+.card{
+  width:540px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.05));
+  border-radius:28px;
+  padding:36px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6), inset 0 -2px 8px rgba(0,0,0,0.5);
+  border:1px solid rgba(0,0,0,0.5);
+}
+
+/* left card narrower visually */
+.left-card{ max-width:520px; }
+.right-card{ max-width:720px; }
+
+.title{
+  font-size:34px;
+  color:var(--neon);
+  letter-spacing:0.02em;
+  margin:0 0 14px 0;
+  font-weight:800;
+}
+
+/* tabs */
+.tabs{ display:flex; gap:12px; margin-bottom:18px; }
+.tab{
+  padding:12px 20px;
+  border-radius:10px;
+  background:transparent;
+  border:2px solid rgba(19,195,255,0.12);
+  color:var(--muted);
+  font-weight:700;
+  cursor:pointer;
+}
+.tab.active{
+  background:linear-gradient(90deg, rgba(0,214,255,0.12), rgba(19,195,255,0.06));
+  color:var(--neon);
+  box-shadow: 0 6px 20px rgba(0,195,255,0.08), 0 0 18px rgba(0,195,255,0.06);
+}
+
+/* form */
+.form{ display:flex; flex-direction:column; gap:12px; margin-top:6px;}
+.hidden{ display:none; }
+.form input, .form select{
+  padding:18px 18px;
+  border-radius:8px;
+  background:rgba(0,0,0,0.35);
+  border:1px solid rgba(255,255,255,0.03);
+  color:var(--muted);
+  outline:none;
+  font-weight:600;
+}
+.form input::placeholder, .form select{ color:rgba(191,207,211,0.5); font-weight:600; }
+
+.form-row{ display:flex; gap:12px; margin-top:10px; }
+.form-row.center{ justify-content:center; }
+.btn{
+  padding:14px 20px;
+  border-radius:10px;
+  border:none;
+  cursor:pointer;
+  font-weight:800;
+  letter-spacing:0.02em;
+  background:transparent;
+  color:var(--muted);
+  box-shadow: none;
+}
+.btn.neon{
+  background: linear-gradient(90deg, rgba(0,214,255,0.95), rgba(19,195,255,0.9));
+  color:#012026;
+  box-shadow: 0 8px 30px rgba(0,214,255,0.14), 0 0 36px rgba(0,214,255,0.09);
+}
+.btn.ghost{
+  background:transparent;
+  border:2px solid rgba(255,255,255,0.04);
+}
+
+/* right card */
+.how{
+  font-size:36px;
+  color:#ffd100;
+  margin:0 0 14px 0;
+  text-align:center;
+}
+.instructions{
+  margin:0; padding-left:18px;
+  color:#d9f0f5;
+  line-height:1.8;
+  font-weight:700;
+}
+.help{ text-align:center; margin-top:18px; color:var(--neon); font-weight:800; }
+
+.madeby{ margin-top:24px; text-align:center; color:var(--accent); font-weight:700; }
+
+/* messages */
+.form-msg{ color:#ffdede; padding:8px 0; min-height:20px; font-weight:700; }
+
+/* responsive */
+@media (max-width:1100px){
+  .page{ flex-direction:column; padding:28px; gap:22px; align-items:center; }
+  .card{ width:92%; max-width:900px; }
+}
+
+/* Scroll fix and responsive layout improvements */
+
+/* Base scroll behavior */
+html, body {
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Make page flex but scrollable */
+.page {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 32px;
+  padding: 48px 96px;
+  min-height: auto;
+}
+
+/* Allow internal scrolling if a card grows taller than the viewport */
+.card {
+  overflow-y: auto;
+  max-height: 90vh;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) rgba(255,255,255,0.05);
+}
+
+/* Custom scrollbar for Webkit browsers */
+.card::-webkit-scrollbar {
+  width: 8px;
+}
+.card::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.03);
+}
+.card::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 6px;
+}
+
+/* --- Improved stacking behavior --- */
+@media (max-width: 1100px) {
+  .page {
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 18px;
+    gap: 22px;
+  }
+
+  /* Make cards take full width, but scroll safely */
+  .card {
+    width: 100%;
+    max-width: 900px;
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .left-card, .right-card {
+    max-width: 100%;
+  }
+
+  /* Allow full scroll on smaller devices */
+  html, body {
+    overflow-y: auto;
+  }
+}
+
+/* Mobile fix: always scroll if overflow */
+@media (max-width: 700px) {
+  .page {
+    padding: 16px 12px;
+  }
+
+  .card {
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .madeby {
+    margin-top: 32px;
+    text-align: center;
+  }
+}
+

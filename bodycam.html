@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bodycam Commands — LEO Command System</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <div id="sidebar"></div>
+
+  <main class="main-panel">
+    <div class="tab-header">
+      <a href="bodycam.html" class="tab-btn active">BODYCAM COMMANDS</a>
+      <a href="penal.html" class="tab-btn">PENAL & TRAFFIC CODES</a>
+      <a href="dutylog.html" class="tab-btn">DUTYLOGS GENERATOR</a>
+    </div>
+
+    <section id="bodycam-section" class="content-section">
+      <!-- Commands will be dynamically injected here -->
+    </section>
+  </main>
+
+  <script type="module">
+    import { loadSidebar } from "./js/sidebar.js";
+    loadSidebar("bodycam");
+  </script>
+
+  <!--script type="module" src="./js/sidebar.js"></script-->
+  <script type="module" src="./js/bodycam.js"></script>
+</body>
+</html>

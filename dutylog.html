@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Duty Log Generator | LEO Command System</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="stylesheet" href="css/dutylog.css" />
+</head>
+
+<body>
+  <div class="layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="user-card">
+        <h3>Name: <span id="user-name">Philip Graves</span></h3>
+        <p>ORG: <span id="user-org">NG</span></p>
+        <p>ID: <span id="user-id">10334</span></p>
+        <p>BADGE: <span id="user-badge">000</span></p>
+        <p>RANK: <span id="user-rank">Major General</span></p>
+        <button class="registered">REGISTERED</button>
+      </div>
+
+      <div class="info-card">
+        <p id="icTime">IC TIME : LONDON TIME</p>
+        <p id="onDutyText">ON DUTY : 00:00</p>
+        <p id="offDutyText">ON OFF : 00:00</p>
+        <p id="dateText">DATE : DD/MM/YYYY</p>
+        <p id="sessionTime">SESSION TIME : 19:00</p>
+        <div class="status-buttons">
+          <button class="on">ON DUTY</button>
+          <button class="off">OFF DUTY</button>
+          <button class="break">ON BREAK</button>
+          <button class="back">BACK ON</button>
+        </div>
+      </div>
+
+      <div class="action-card">
+        <button class="logout">LOGOUT</button>
+        <button class="how">HOW TO USE?</button>
+        <button class="discord">JOIN DISCORD</button>
+        <p class="credit">MADE BY <strong>GUILDLABS</strong></p>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-panel">
+      <div class="nav-bar">
+        <button onclick="window.location.href='bodycam.html'">BODYCAM COMMANDS</button>
+        <button onclick="window.location.href='penal.html'">PENAL & TRAFFIC CODES</button>
+        <button class="active">DUTYLOGS GENERATOR</button>
+      </div>
+
+      <div class="panel dutylog-panel">
+        <div class="officer-info">
+          <p><strong>NAME:</strong> <span id="dl-name">Philip Graves</span></p>
+          <p><strong>ID:</strong> <span id="dl-id">10334</span></p>
+          <p><strong>BADGE:</strong> <span id="dl-badge">000</span></p>
+          <p><strong>RANK:</strong> <span id="dl-rank">Major General</span></p>
+        </div>
+
+        <div class="checkbox-section">
+          <div class="section-title">Weapons</div>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" value="STUN GUN"> STUN GUN</label>
+            <label><input type="checkbox" value="STUN GUN AMMO"> STUN GUN AMMO</label>
+            <label><input type="checkbox" value="ASSAULT RIFLE"> ASSAULT RIFLE</label>
+            <label><input type="checkbox" value="ASSAULT RIFLE AMMO"> ASSAULT RIFLE AMMO</label>
+            <label><input type="checkbox" value="SHOTGUN"> SHOTGUN</label>
+            <label><input type="checkbox" value="SHOTGUN AMMO"> SHOTGUN AMMO</label>
+            <label><input type="checkbox" value="LIGHT MACHINE GUN"> LIGHT MACHINE GUN</label>
+            <label><input type="checkbox" value="LIGHT MACHINE GUN AMMO"> LIGHT MACHINE GUN AMMO</label>
+          </div>
+
+          <div class="section-title">Events</div>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" value="STORE ROBBERY"> STORE ROBBERY</label>
+            <label><input type="checkbox" value="HOSTAGE RESCUE"> HOSTAGE RESCUE</label>
+            <label><input type="checkbox" value="GHETTO PATROL"> GHETTO PATROL</label>
+            <label><input type="checkbox" value="INFORMANT"> INFORMANT</label>
+            <label><input type="checkbox" value="PRISON DEFENSE"> PRISON DEFENSE</label>
+            <label><input type="checkbox" value="FZ RAID"> FZ RAID</label>
+            <label><input type="checkbox" value="HACKER ATTACK"> HACKER ATTACK</label>
+            <label><input type="checkbox" value="GANG RAID"> GANG RAID</label>
+            <label><input type="checkbox" value="ACC / BANK ROBBERY"> ACC / BANK ROBBERY</label>
+            <label><input type="checkbox" value="SUBMARINE INTERCEPTION"> SUBMARINE INTERCEPTION</label>
+            <label><input type="checkbox" value="BLACK MARKET RAID"> BLACK MARKET RAID</label>
+          </div>
+
+          <div class="generate-container">
+            <button id="generateBtn" class="btn yellow">GENERATE</button>
+          </div>
+
+          <div class="output">
+            <textarea id="outputText" readonly></textarea>
+            <button id="copyBtn" class="btn ghost">📋 Copy Log</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/dutylog.js"></script>
+</body>
+</html>
