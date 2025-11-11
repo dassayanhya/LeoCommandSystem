@@ -50,7 +50,7 @@ btnLogin.addEventListener('click', async () => {
 
     // store in session and redirect to dashboard
     sessionStorage.setItem('leo_user', JSON.stringify(userData));
-    window.location.href = 'dashboard.html';
+    window.location.href = 'bodycam.html';
   } catch (err) {
     console.error(err);
     regMsg.textContent = err.message || 'Login failed.';
