@@ -23,5 +23,5 @@ document.getElementById('btn-guest').addEventListener('click', () => {
 
   sessionStorage.setItem('leo_user', JSON.stringify(guestData));
   // optionally store in Firestore logs (not included here)
-  window.location.href = 'dashboard.html';
+  window.location.href = 'bodycam.html';
 });

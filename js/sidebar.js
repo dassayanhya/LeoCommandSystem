@@ -63,7 +63,26 @@ export function loadSidebar(active) {
       <div class="action-card">
         <button class="logout">LOGOUT</button>
         <button class="how">HOW TO USE?</button>
-        <button class="discord">JOIN DISCORD</button>
+        <a href="https://discord.gg/Tf2grJt75e" 
+   class="discord" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   style="
+     display:block;
+     background-color:#5865f2;
+     color:#fff;
+     font-weight:600;
+     padding:10px 15px;
+     border:none;
+     border-radius:8px;
+     text-align:center;
+     text-decoration:none;
+     cursor:pointer;
+     margin-top:5px;
+     transition:background-color 0.2s ease, transform 0.1s ease;
+   ">
+   JOIN DISCORD
+</a>
         <p class="credit">MADE BY <strong>GUILDLABS</strong></p>
       </div>
     </aside>
@@ -113,6 +132,6 @@ export function loadSidebar(active) {
     sessionStorage.removeItem("session_data");
 
     // Redirect to login
-    window.location.href = "login.html";
+    window.location.href = "index.html";
   });
 }
