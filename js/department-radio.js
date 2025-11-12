@@ -17,7 +17,7 @@ const senderOrg = (user.org || "GUEST").toUpperCase();
 document.getElementById("senderOrg").value = senderOrg;
 
 // Recipient list (dynamic removal of user's own org)
-const allOrgs = ["DOJ", "LSPD", "SAHP", "FIB", "NG", "EMS", "GOV", "GLOBAL"];
+const allOrgs = ["DOJ", "LSPD", "SAHP", "FIB", "NG", "EMS", "GOV", "GLOBAL", "LSPD/SAHP/FIB"];
 const recipients = allOrgs.filter(org => org !== senderOrg);
 
 const recipientSelect = document.getElementById("recipientSelect");
@@ -170,6 +170,15 @@ const templates = {
     "On standby for a possible hostage situation!",
     "Be on standby for a possible roadblock activation!",
     "The Global is 10-99."
+  ],
+
+  "LSPD/SAHP/FIB": [
+    "How copy?",
+    "We have a 10-15 at MB, can you send a unit?",
+    "We have multiple 10-15s at MB, can you send units?",
+    "Global is for heavy 10-10s, send all available units!",
+    "Be on standby for possible FZ Raid!",
+    "We are getting raided, please dispatch max units!",
   ]
 };
 
