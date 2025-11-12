@@ -6,6 +6,7 @@
   <title>Penal Codes | LEO Command System</title>
   <link rel="stylesheet" href="css/dashboard.css" />
   <link rel="stylesheet" href="css/code.css" />
+  <link rel="stylesheet" href="css/style.css" />
   <script type="module" src="./js/sidebar.js"></script>
 </head>
 
@@ -15,9 +16,11 @@
 
     <main class="content">
       <div class="nav-buttons">
+        <a href="dashboard.html" class="tab-btn">Dashboard</a>
         <a href="bodycam.html" class="nav-btn">BODYCAM COMMANDS</a>
         <a href="penal.html" class="nav-btn active">PENAL & TRAFFIC CODES</a>
         <a href="dutylog.html" class="nav-btn">DUTYLOGS GENERATOR</a>
+        <a href="department-radio.html" class="tab-btn">DEPARTMENT</a>
       </div>
 
       <div class="tab-buttons">
@@ -31,5 +34,10 @@
   </div>
 
   <script type="module" src="./js/penal.js"></script>
+  <script>
+  window.onload = function() {
+    document.body.style.zoom = "67%";
+  };
+</script>
 </body>
 </html>

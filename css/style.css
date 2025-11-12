@@ -9,7 +9,15 @@
 }
 
 *{box-sizing:border-box}
-html,body{height:100%; margin:0; font-family:"Poppins",system-ui; background:var(--bg); color:#cfe7ec}
+
+html,body{
+  height:100%;
+  margin:0; 
+  font-family:"Poppins",system-ui; 
+  background:var(--bg); color:#cfe7ec
+}
+
+
 .page{
   display:flex;
   gap:32px;
@@ -125,7 +133,6 @@ html,body{height:100%; margin:0; font-family:"Poppins",system-ui; background:var
 
 /* Base scroll behavior */
 html, body {
-  height: auto;
   min-height: 100%;
   overflow-x: hidden;
   overflow-y: auto;

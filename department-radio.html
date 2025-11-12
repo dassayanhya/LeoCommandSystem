@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Department Radio — LEO Command System</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <div id="sidebar"></div>
+
+  <main class="main-panel">
+    <div class="tab-header">
+      <a href="bodycam.html" class="tab-btn">BODYCAM COMMANDS</a>
+      <a href="penal.html" class="tab-btn">PENAL & TRAFFIC CODES</a>
+      <a href="dutylog.html" class="tab-btn">DUTYLOGS GENERATOR</a>
+      <a href="department-radio.html" class="tab-btn active">DEPARTMENT</a>
+    </div>
+
+    <section id="department-section" class="content-section">
+      <div class="dept-controls">
+        <div class="form-row">
+          <label>Your Organization:</label>
+          <input id="senderOrg" type="text" readonly />
+        </div>
+
+        <div class="form-row">
+          <label>Send To:</label>
+          <select id="recipientSelect"></select>
+        </div>
+
+        <div class="form-row">
+          <label>Search Message:</label>
+          <input id="searchInput" type="text" placeholder="Type to filter..." />
+        </div>
+      </div>
+
+      <div id="messageGrid" class="command-list"></div>
+    </section>
+  </main>
+
+  <script type="module">
+    import { loadSidebar } from "./js/sidebar.js";
+    loadSidebar("department-radio");
+  </script>
+
+  <script type="module" src="./js/department-radio.js"></script>
+  <script>
+  window.onload = function() {
+    document.body.style.zoom = "67%";
+  };
+</script>
+</body>
+</html>

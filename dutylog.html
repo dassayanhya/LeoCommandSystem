@@ -11,19 +11,21 @@
 <body>
   <div class="page">
     <!-- Sidebar -->
-    <div id="sidebar" class="sidebar"></div>
+    <div id="sidebar"></div>
 
     <!-- Main Panel -->
     <main class="main-panel">
       <div class="tabs">
+        <a href="dashboard.html" class="tab-btn">Dashboard</a>
         <a href="bodycam.html" class="tab">BODYCAM COMMANDS</a>
         <a href="penal.html" class="tab">PENAL & TRAFFIC CODES</a>
         <a href="dutylog.html" class="tab active">DUTYLOGS GENERATOR</a>
+        <a href="department-radio.html" class="tab-btn">DEPARTMENT</a>
       </div>
 
       <div class="content-section">
         <h2 class="title">DUTY LOG GENERATOR</h2>
-
+      
         <div class="officer-info">
           <p><strong>NAME:</strong> <span id="dl-name">-</span></p>
           <p><strong>ORG:</strong> <span id="dl-org">-</span></p>
@@ -91,5 +93,10 @@
     loadSidebar('dutylog');
   </script>
   <script src="js/dutylog.js"></script>
+  <script>
+  window.onload = function() {
+    document.body.style.zoom = "67%";
+  };
+</script>
 </body>
 </html>

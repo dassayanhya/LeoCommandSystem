@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>User Settings — LEO Command System</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+  <div id="sidebar"></div>
+
+  <main class="main-panel">
+    <div class="tab-header">
+      <a href="dashboard.html" class="tab-btn">Dashboard</a>
+      <a href="bodycam.html" class="tab-btn">BODYCAM COMMANDS</a>
+      <a href="penal.html" class="tab-btn">PENAL & TRAFFIC CODES</a>
+      <a href="department-radio.html" class="tab-btn">DEPARTMENT</a>
+      <a href="user-settings.html" class="tab-btn active">SETTINGS</a>
+    </div>
+
+    <section id="user-settings" class="content-section">
+      <h2 class="section-title">👤 User Settings</h2>
+
+      <form id="settingsForm" class="settings-form">
+        <div class="settings-grid">
+          <div class="form-group">
+            <label for="username">Full Name</label>
+            <input type="text" id="username" placeholder="Enter your name" />
+          </div>
+
+          <div class="form-group">
+            <label for="badge">Badge / ID</label>
+            <input type="text" id="badge" placeholder="Enter badge or ID" />
+          </div>
+
+          <div class="form-group">
+            <label for="organization">Organization</label>
+            <select id="organization">
+              <option value="FIB">FIB</option>
+              <option value="LSPD">LSPD</option>
+              <option value="SAHP">SAHP</option>
+              <option value="DOJ">DOJ</option>
+              <option value="EMS">EMS</option>
+              <option value="NG">NG</option>
+              <option value="GOV">GOV</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="designation">Designation</label>
+            <input type="text" id="designation" placeholder="e.g. Major General / Inspector / Director" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter new password" />
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button type="button" id="saveBtn">💾 Save Changes</button>
+          <button type="button" id="resetBtn">↩ Reset</button>
+        </div>
+
+        <p id="saveMessage" class="save-status"></p>
+      </form>
+    </section>
+  </main>
+
+  <script type="module">
+    import { loadSidebar } from "./js/sidebar.js";
+    loadSidebar("user-settings");
+  </script>
+
+  <script type="module" src="./js/user-settings.js"></script>
+  <script>
+  window.onload = function() {
+    document.body.style.zoom = "67%";
+  };
+</script>
+</body>
+</html>

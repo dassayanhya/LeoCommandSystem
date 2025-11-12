@@ -62,7 +62,7 @@ export function loadSidebar(active) {
 
       <div class="action-card">
         <button class="logout">LOGOUT</button>
-        <button class="how">HOW TO USE?</button>
+        <button class="how">HOW TO ?</button>
         <a href="https://discord.gg/Tf2grJt75e" 
    class="discord" 
    target="_blank" 

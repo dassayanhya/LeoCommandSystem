@@ -53,6 +53,21 @@ function makeTemplate(hasDispatch) {
       ]
     },
     {
+      heading: "HANDING FOOTAGE TO LAWYER",
+      lines: [
+        `/me saves bodycam contents onto an SD card and uploads contents to ${org} servers`,
+        "/me Takes SD card out of the bodycam and hands it to the lawyer",
+        "/do bodycam refreshes and continues recording"
+      ]
+    },
+    {
+      heading: "SEARCHING A TRUNK",
+      lines: [
+        `/me carefully inspects the trunk and uses a crowbar to attempt opening it`,
+        "/me applies pressure with the crowbar to force the trunk open",
+      ]
+    },
+    {
       heading: "FINISHING YOUR SHIFT",
       lines: [
         `/me takes out an SD card from the bodycam, puts it in the phone and uploads it to the ${org}`,
