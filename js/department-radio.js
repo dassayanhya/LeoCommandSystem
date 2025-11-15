@@ -53,7 +53,7 @@ const templates = {
     "We're currently enroute!",
     "10-4, much appreciated!",
     "Permission Granted!",
-    "Troopers enroute!",
+    "Officers enroute!",
     "Global is for regrouping after latest Store Robbery. Please dispatch max units!",
     "Federals is getting robbed at global, send all available units!",
     "Global is for a checkpoint, everyone is invited!",
@@ -109,6 +109,7 @@ const templates = {
     "Requesting permission to land at your HQ.",
     "Can we have a quick meeting at MB?",
     "We have one of your [UNIT_TITLE]s in custody, could you 10-17 to DOC?",
+    "We have a 10-15 at MB, can you send a unit?",
     "We're currently enroute!",
     "10-4, much appreciated!",
     "Permission Granted!",
@@ -150,7 +151,7 @@ const templates = {
     "We're currently enroute!",
     "10-4, much appreciated!",
     "Permission Granted!",
-    "Troopers enroute!",
+    "Agents enroute!",
     "Global is for regrouping for latest Store Robbery. Please dispatch max units!",
     "Global is for heavy 10-16s, send all available units!",
     "Federals is getting robbed at global, send all available units!",
@@ -169,6 +170,7 @@ const templates = {
     "Global is for a checkpoint, everyone is invited!",
     "On standby for a possible hostage situation!",
     "Be on standby for a possible roadblock activation!",
+    "Soldiers enroute!",
     "The Global is 10-99."
   ],
 
