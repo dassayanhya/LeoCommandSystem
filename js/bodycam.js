@@ -40,7 +40,13 @@ const categories = [
         "/me makes sure it is recording and checks for the red light",
         "/do It is recording, is ballistic and water proof",
         `/me connects the PDA to the nearest cell tower of ${org}`,
-        `${badge} to dispatch : Show me 10-41 at ${londonTime}`,
+
+        // ---- NEW FIX: Only show dispatch for these orgs ----
+        ...( ["LSPD", "SAHP", "FIB"].includes(org)
+            ? [`${badge} to dispatch : Show me 10-41 at ${londonTime}`]
+            : []
+        )
+        // -----------------------------------------------------
       ],
 
       UNDERCOVER: [
@@ -53,22 +59,22 @@ const categories = [
   },
 
   {
-    id: "drone",
-    heading: "DRONE COMMANDS",
+  id: "drone",
+  heading: "DRONE COMMANDS",
 
-    tabs: {
-      MAIN: [
-        "/me launches the FIB Drone",
-        "/me Takes the FIB Drone from the Ground and puts it back in backpack",
-      ],
+  tabs: {
+    MAIN: [
+      `/me launches the ${org} drone`,
+      `/me takes the ${org} drone from the ground and puts it in the backpack`
+    ],
 
-      UNDERCOVER: [
-        "/me takes the FIB drone from the trunk and puts it in the backpack",
-        "/me takes the FIB drone from the backpack and launches it",
-        "/me takes the FIB drone from the ground and puts it in the backpack",
-      ],
-    },
+    UNDERCOVER: [
+      `/me takes the ${org} drone from the trunk and puts it in the backpack`,
+      `/me takes the ${org} drone from the backpack and launches it`,
+      `/me takes the ${org} drone from the ground and puts it in the backpack`
+    ],
   },
+},
 
   //
   // -------------------------------
