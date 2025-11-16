@@ -2,23 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>LEO Dashboard</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LEO Command System — Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
 </head>
+
 <body>
-  <main class="page" style="align-items:flex-start; padding-top:48px;">
-    <section class="card" id="dashboardCard" style="width:100%; max-width:1100px;">
-      <div id="userArea"></div>
-      <hr style="border:none; border-top:1px solid rgba(255,255,255,0.03); margin:18px 0;">
-      <div id="commandsArea"></div>
-      <div style="margin-top:18px;">
-        <button id="btn-logout" class="btn ghost">LOGOUT</button>
+  <div id="sidebar"></div>
+
+  <main class="main-panel dashboard">
+    <section class="profile-section">
+      <div class="profile-card">
+        <div class="profile-photo">
+          <img id="profilePic" src="assets/default-avatar.png" alt="User Photo" />
+        </div>
+        <div class="profile-info">
+          <h2 id="userName">NAME: Unknown</h2>
+          <p>ORG: <span id="userOrg">N/A</span></p>
+          <p>ID: <span id="userID">-</span></p>
+          <p>BADGE: <span id="userBadge">-</span></p>
+          <p>RANK: <span id="userRank">-</span></p>
+          <p>LEO COMMAND UID: <span id="userUID">-</span></p>
+        </div>
+        <div class="profile-buttons">
+          <button id="openSettings">⚙️ SETTINGS</button>
+          <button id="logout">🚪 LOGOUT</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="quickmenu-section">
+      <h2>QUICK MENU</h2>
+      <div class="quickmenu-grid">
+        <button class="menu-btn" data-page="bodycam.html">📹 BODYCAM COMMANDS</button>
+        <button class="menu-btn" data-page="department-radio.html">📡 DEPARTMENT RADIO</button>
+        <button class="menu-btn" data-page="dutylog.html">🧾 DUTY LOGS</button>
+        <button class="menu-btn" data-page="penal.html">⚖️ PENAL CODES</button>
+        <button class="menu-btn" data-page="traffic.html">🚦 TRAFFIC CODES</button>
+        <button class="menu-btn" data-page="arrestwarrant.html">🧾 ARREST WARRENT GENERATOR</button>
+      </div>
+    </section>
+
+    <section class="updates-section">
+      <h2>🧩 DEV NOTES / ANNOUNCEMENTS</h2>
+      <div id="updateFeed" class="update-feed">
+        <p>Loading latest updates...</p>
       </div>
     </section>
   </main>
 
-  <script type="module" src="./js/factionLogic.js"></script>
+  <script type="module" src="js/dashboard.js"></script>
 </body>
 </html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arrest Warrant Generator | LEO Command System</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="stylesheet" href="css/dutylog.css" />
+</head>
+<body>
+  <div class="page">
+    <div id="sidebar"></div>
+
+    <main class="main-panel">
+      <div class="tabs">
+        <a href="dashboard.html" class="tab-btn">Dashboard</a>
+        <a href="bodycam.html" class="tab-btn">BODYCAM COMMANDS</a>
+        <a href="penal.html" class="tab-btn">PENAL & TRAFFIC CODES</a>
+        <a href="dutylog.html" class="tab-btn">DUTYLOGS GENERATOR</a>
+        <a href="arrestwarrant.html" class="tab-btn active">ARREST WARRANT</a>
+        <a href="department-radio.html" class="tab-btn">DEPARTMENT</a>
+      </div>
+
+      <div class="content-section">
+        <h2 class="title">WARRANT OF ARREST GENERATOR</h2>
+
+        <div class="officer-info">
+          <p><strong>NAME:</strong> <span id="aw-name">-</span></p>
+          <p><strong>ORG:</strong> <span id="aw-org">-</span></p>
+          <p><strong>ID:</strong> <span id="aw-id">-</span></p>
+          <p><strong>BADGE:</strong> <span id="aw-badge">-</span></p>
+          <p><strong>DATE:</strong> <span id="aw-date">-</span></p>
+        </div>
+
+        <div class="form-row" style="display:grid; gap:10px; margin-top:12px;">
+          <label>Filing Organization (will appear in Warrant ID)
+            <input id="filingOrg" placeholder="e.g., LSPD" />
+          </label>
+
+          <label>Judge / Issuing Officer Name
+            <input id="judgeName" placeholder="Judge John Doe" />
+          </label>
+
+          <label>Suspect Full Name
+            <input id="suspectName" placeholder="Suspect Name" />
+          </label>
+
+          <label>Suspect SSN
+            <input id="suspectSSN" placeholder="123-45-6789" />
+          </label>
+
+          <label>Charges (one per line)
+            <textarea id="charges" rows="5" placeholder="e.g. 1. Robbery&#10;2. Possession of Firearm"></textarea>
+          </label>
+
+          <label>Warrant Date (DDMMYYYY) — auto if left empty
+            <input id="warrantDate" placeholder="DDMMYYYY (optional)" />
+          </label>
+
+          <div style="display:flex; gap:10px;">
+            <button id="generateWarrant" class="btn neon">GENERATE WARRANT</button>
+            <button id="copyWarrant" class="btn ghost">COPY WARRANT</button>
+            <button id="downloadPdf" class="btn ghost">DOWNLOAD .TXT</button>
+          </div>
+        </div>
+
+        <textarea id="warrantOutput" readonly placeholder="Generated warrant will appear here..." style="margin-top:16px; height:320px; font-family: 'Courier New', monospace;"></textarea>
+      </div>
+    </main>
+  </div>
+
+  <script type="module">
+    import { loadSidebar } from './js/sidebar.js';
+    loadSidebar('arrestwarrant');
+  </script>
+  <script src="js/arrestwarrant.js"></script>
+  <script>
+    window.onload = function() { document.body.style.zoom = "67%"; };
+  </script>
+</body>
+</html>
