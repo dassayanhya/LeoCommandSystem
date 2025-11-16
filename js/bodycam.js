@@ -120,14 +120,20 @@ const categories = [
   },
 
   {
-    id: "finish",
-    heading: "FINISHING YOUR SHIFT",
-    lines: [
-      `/me takes out an SD card from the bodycam, puts it in the phone and uploads it to the ${org}`,
-      "/me puts an ID Badge inside the locker until the next shift",
-      `${badge} to dispatch : Show me 10-42 at ${londonTime}`,
-    ],
-  },
+  id: "finish",
+  heading: "FINISHING YOUR SHIFT",
+  lines: [
+    `/me takes out an SD card from the bodycam, puts it in the phone and uploads it to the ${org}`,
+    "/me puts an ID Badge inside the locker until the next shift",
+
+    // ---- NEW FIX: Only show dispatch for allowed orgs ----
+    ...( ["LSPD", "SAHP", "FIB"].includes(org)
+        ? [`${badge} to dispatch : Show me 10-42 at ${londonTime}`]
+        : []
+    )
+    // -------------------------------------------------------
+  ],
+},
 ];
 
 
