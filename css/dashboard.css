@@ -250,3 +250,167 @@ button.guest {
   margin-top: 6px;
 }
 
+/* User Settings Page */
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 10px;
+  color: #00d1ff;
+  font-weight: 600;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #00d1ff;
+  box-shadow: 0 0 8px rgba(0, 200, 255, 0.4);
+}
+
+.btn-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+#saveBtn, #resetBtn {
+  background: rgba(0, 200, 255, 0.15);
+  border: 1px solid #00d1ff;
+  color: white;
+  border-radius: 12px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#saveBtn:hover, #resetBtn:hover {
+  background: rgba(0, 200, 255, 0.25);
+  transform: scale(1.05);
+}
+
+.save-status {
+  text-align: center;
+  color: #00ffb3;
+  font-weight: 600;
+  opacity: 0.8;
+  transition: all 0.4s ease;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 20px;
+  padding: 30px;
+}
+
+.profile-card {
+  background: rgba(0, 20, 30, 0.7);
+  border: 1px solid #00d1ff;
+  border-radius: 16px;
+  padding: 20px;
+  color: #00eaff;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile-photo img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid #00d1ff;
+  object-fit: cover;
+}
+
+.profile-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.profile-buttons button {
+  background: rgba(0, 200, 255, 0.1);
+  border: 1px solid #00d1ff;
+  border-radius: 10px;
+  padding: 8px 18px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.profile-buttons button:hover {
+  background: rgba(0, 200, 255, 0.25);
+}
+
+.quickmenu-section {
+  background: rgba(0, 20, 30, 0.7);
+  border: 1px solid #00d1ff;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+}
+
+.quickmenu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.menu-btn {
+  background: rgba(0, 200, 255, 0.1);
+  border: 1px solid #00d1ff;
+  color: #00eaff;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.menu-btn:hover {
+  background: rgba(0, 200, 255, 0.25);
+  transform: scale(1.05);
+}
+
+.updates-section {
+  background: rgba(0, 20, 30, 0.7);
+  border: 1px solid #00d1ff;
+  border-radius: 16px;
+  padding: 20px;
+  color: #00eaff;
+}
+
+.update-feed {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
