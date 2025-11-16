@@ -120,20 +120,32 @@ const categories = [
   },
 
   {
-  id: "finish",
-  heading: "FINISHING YOUR SHIFT",
-  lines: [
-    `/me takes out an SD card from the bodycam, puts it in the phone and uploads it to the ${org}`,
-    "/me puts an ID Badge inside the locker until the next shift",
+    id: "finish",
+    heading: "FINISHING YOUR SHIFT",
+    lines: [
+      `/me takes out an SD card from the bodycam, puts it in the phone and uploads it to the ${org}`,
+      "/me puts an ID Badge inside the locker until the next shift",
 
-    // ---- NEW FIX: Only show dispatch for allowed orgs ----
-    ...( ["LSPD", "SAHP", "FIB"].includes(org)
-        ? [`${badge} to dispatch : Show me 10-42 at ${londonTime}`]
-        : []
-    )
-    // -------------------------------------------------------
-  ],
-},
+      // ---- NEW FIX: Only show dispatch for allowed orgs ----
+      ...( ["LSPD", "SAHP", "FIB"].includes(org)
+          ? [`${badge} to dispatch : Show me 10-42 at ${londonTime}`]
+          : []
+      )
+        // -------------------------------------------------------
+    ],
+  },
+
+  {
+    id: "bio",
+    heading: "ONLY FOR BIOED RP",
+    lines: [
+      "/try Finds the bodycam of the person in front and breaks it",
+      "/do Make sure that Bodycam is Broken",
+      "/try Injects the Truth Serum into the person in front",
+      "/try Tapes the mouth of the person in front",
+
+    ],
+  },
 ];
 
 
