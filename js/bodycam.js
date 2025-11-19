@@ -152,8 +152,18 @@ const categories = [
     heading: "Vehicle Interactions",
     lines: [
       "/me Break the trunk wide open using a crowbar",
-      "/me writes down license plate and searches the license plate through the SAHP database",
-      "/me Kneels down, feels the VIN number under the car and run it through SAHP Database",
+      '/me writes down license plate and searches the license plate through the ${org} database',
+      '/me Kneels down, feels the VIN number under the car and run it through ${org} Database',
+    ],
+  },
+
+  {
+    id: "arrrets",
+    heading: "Arresting Rp Cmds",
+    lines: [
+      "/me grabs a *SIZE* jumpsuit from behind the counter",
+      "/me Places the Jumpsuit on the Bed",
+      "/try Removes Cell-Phone, Two-way Radio and Lockpicks from the person in front",
     ],
   },
 
