@@ -152,15 +152,8 @@ const categories = [
     heading: "Vehicle Interactions",
     lines: [
       "/me Break the trunk wide open using a crowbar",
-      '/me writes down license plate and searches the license plate through the ${org} database',
-      '/me Kneels down, feels the VIN number under the car and run it through ${org} Database',
-
-      // ---- NEW FIX: Only show dispatch for allowed orgs ----
-      ...( ["LSPD", "SAHP", "FIB"].includes(org)
-          ? [`${badge} to dispatch : Show me 10-42 at ${londonTime}`]
-          : []
-      )
-        // -------------------------------------------------------
+      `/me writes down license plate and searches the license plate through the ${org} database`,
+      `/me Kneels down, feels the VIN number under the car and run it through ${org} Database`,
     ],
   },
 
@@ -171,13 +164,6 @@ const categories = [
       "/me grabs a *SIZE* jumpsuit from behind the counter",
       "/me Places the Jumpsuit on the Bed",
       "/try Removes Cell-Phone, Two-way Radio and Lockpicks from the person in front",
-
-      // ---- NEW FIX: Only show dispatch for allowed orgs ----
-      ...( ["LSPD", "SAHP", "FIB"].includes(org)
-          ? [`${badge} to dispatch : Show me 10-42 at ${londonTime}`]
-          : []
-      )
-        // -------------------------------------------------------
     ],
   },
 
