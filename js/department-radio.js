@@ -164,14 +164,14 @@ const templates = {
   GLOBAL: [
     "What's the situation?",
     "Global is for regrouping after latest Store Robbery — dispatch max units!",
-    "Global is for heavy 10-16s — send all available units!",
+    "Global is for heavy 10-10 — send all available units!",
     "Federals is getting robbed at global, send all available units!",
     "Global is for a hood watch, send all available units!",
     "Global is for a checkpoint, everyone is invited!",
     "On standby for a possible hostage situation!",
     "Be on standby for a possible roadblock activation!",
-    "Soldiers enroute!",
-    "The Global is 10-99."
+    "Troopers enroute!",
+    "The Global is 10-99, Thanks for responding. !!"
   ],
 
   "LSPD/SAHP/FIB": [
